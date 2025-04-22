@@ -36,10 +36,11 @@
 //     io.to(to).emit("peer:nego:final", { from: socket.id, ans });
 //   });
 // });
+import express from "express";
+import { Server } from "socket.io";
+import path from "path";
 
-const { Server } = require("socket.io");
-const express = require("express");
-const path = require("path");
+const __dirname = path.resolve();
 
 const app = express();
 const server = app.listen(8000, "0.0.0.0", () => {
