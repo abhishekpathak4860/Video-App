@@ -49,7 +49,7 @@ const server = app.listen(8000, "0.0.0.0", () => {
 // Socket.io configuration
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // Allow all origins (for testing purposes)
+    origin: "https://video-app-rnet.onrender.com/", // Allow all origins (for testing purposes)
     methods: ["GET", "POST"],
   },
 });
