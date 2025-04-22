@@ -31,6 +31,7 @@ const RoomPage = () => {
         audio: true,
         video: true,
       });
+
       setMyStream(stream);
       console.log(`Incoming Call`, from, offer);
       const ans = await peer.getAnswer(offer);
@@ -118,7 +119,13 @@ const RoomPage = () => {
       {myStream && (
         <>
           <h1>My Stream</h1>
-          <ReactPlayer playing height="200px" width="200px" url={myStream} />
+          <ReactPlayer
+            playing
+            height="200px"
+            width="200px"
+            muted={true}
+            url={myStream}
+          />
         </>
       )}
       {remoteStream && (
@@ -128,6 +135,7 @@ const RoomPage = () => {
             playing
             height="200px"
             width="200px"
+            muted={false}
             url={remoteStream}
           />
         </>
