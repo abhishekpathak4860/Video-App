@@ -40,6 +40,8 @@
 const { Server } = require("socket.io");
 const express = require("express");
 
+const __dirname = path.resolve();
+
 const app = express();
 const server = app.listen(8000, "0.0.0.0", () => {
   console.log("Server running on port 8000");
@@ -96,4 +98,10 @@ io.on("connection", (socket) => {
     emailToSocketIdMap.delete(socketidToEmailMap.get(socket.id));
     socketidToEmailMap.delete(socket.id);
   });
+});
+
+app.use(express.static(path.join(__dirname, "/client/dist")));
+
+app.get("/*path", (req, res) => {
+  res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
 });
