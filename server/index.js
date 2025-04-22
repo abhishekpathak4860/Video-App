@@ -39,8 +39,7 @@
 
 const { Server } = require("socket.io");
 const express = require("express");
-
-const __dirname = path.resolve();
+const path = require("path");
 
 const app = express();
 const server = app.listen(8000, "0.0.0.0", () => {
